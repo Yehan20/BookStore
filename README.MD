@@ -44,11 +44,14 @@ Open a terminal and clone this repo:
 # Clone this repository
 $ git clone https://github.com/Yehan20/BookStore.git
 
-# Go into the repository and client side app
-$ cd books-store/books-api/books-fe
 
 # Remove current origin repository
 $ git remote remove origin
+
+
+# Go into the repository and client side app
+$ cd books-store/books-api/books-fe
+
 
 # If you want, you can add a new remote repository
 $ git remote add origin https://github.com/<your-github-username>/<your-repo-name>.git
@@ -78,11 +81,9 @@ Open a terminal and clone this repo:
 ```bash
 
 # Go into the repository of the apis
-$ cd books-store/books-api/books-fe
+$ cd books-store/books-api/books-api
 
 
-# Remove current origin repository
-$ git remote remove origin
 
 # If you want, you can add a new remote repository
 $ git remote add origin https://github.com/<your-github-username>/<your-repo-name>.git
