@@ -1,0 +1,139 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    min-height: 100vh; 
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+img{
+    max-width: 100%;
+}
+::placeholder{
+    opacity: 1;
+    color: #083F46 !important;
+}
+input:focus{
+    outline: 0;
+    border: 0;
+}
+input[type=number]{
+    -moz-appearance: "textfield"; 
+    appearance: none;
+}
+#root{
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+main { 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.side-bar{
+    background-image: url('../assets/images/pattern.png');
+    background-color: antiquewhite;
+}
+.login,.register{
+    /* background-image: url('../assets/images/side-circle.png');  */
+    background-size:cover;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+    background-color: #152c18 ;
+    background-blend-mode: multiply;
+
+    width: 100%;
+
+    /* border-bottom-right-radius: 20%;
+    border-top-right-radius: 20%; */
+}
+.login p{
+    line-height: 1;
+}
+.login input ,.register input,.add-contact input,.add-contact input,select{
+    border-radius: 2em;
+    display: block;
+    padding: 0.5em 2em;
+    max-width: 450px;
+    width: 100%;
+    font-size: 1.3rem;
+    color: #083F46 ;
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.add-contact input[type=radio]{
+
+ 
+  transform: scale(0.3);
+  padding: 20px;
+}
+.custom-button{
+   color: #fff;
+   display: inline-block;
+   padding: 0.2em 1.5em;
+   border-radius: 5em;
+   border: 1px solid #fff;
+}
+.custom-button:hover{
+    opacity: 0.7;
+}
+
+#modal-overlay{
+
+    backdrop-filter: blur(8px); /* Adjust the blur radius as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+    z-index: 999; /* Adjust the z-index as needed */
+}
+.modal-form{
+    max-width: 750px;
+    border-radius: 1.5em;
+    
+}
+@media screen and (max-width:640px) {
+    .modal-form{
+        max-width: 350px;
+    }
+}
+.modal-button{
+    border-radius: 1.5em;;
+}
+
+/* home pages */
+.outer{
+   
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-color: #152c18 ;
+    background-blend-mode: multiply;
+    width: 100%;
+}
+.inner{
+  
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-color: #152c18 ;
+    background-blend-mode: multiply;
+    width: 100%;
+}
+
+/* Add contact pages */
+
+/* custom table styles */
+table th {
+  
+    text-align: left;
+}
