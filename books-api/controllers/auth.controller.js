@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 
 //Importing shcemas
 const userSchema = require('../model/users');
-const contactSchema = require('../model/books');
 
 // JWT Token Generations
 const generateAccessToken = (user)=>{

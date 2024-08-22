@@ -1,6 +1,7 @@
 // Function to create and send the jwt token
 const jwt = require('jsonwebtoken');
 
+// check  if token verified
 const verifyToken=(req,res,next)=>{
      console.log('run the middle weres')
     //  verify the token before giving access to the user

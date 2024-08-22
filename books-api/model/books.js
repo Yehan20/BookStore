@@ -7,7 +7,7 @@ const BooksSchema  = new mongoose.Schema({
        publishedDate:String,
 })
 
-const ContactSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     userId:{
          type:String,
          required:true
@@ -26,4 +26,4 @@ const ContactSchema = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model("books",ContactSchema)
+module.exports = mongoose.model("books",UserSchema)
