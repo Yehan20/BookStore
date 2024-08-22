@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import MessageModal from '../../components/messageModal';
@@ -30,16 +30,17 @@ const Register = () => {
          }
          register(email,password)
 
-        //  setEmail('');
-        //  setPassword('');
-        //  setVerifyPassword('')
-
-         if(userdata){
-            console.log('correct');
-            navigate('/contacts',)
-          }
+    
      
     }
+    
+
+    useEffect(()=>{
+        if(userdata){
+            console.log('correct');
+            navigate('/books',)
+          }
+       },[userdata])
 
 
     return (

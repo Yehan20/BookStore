@@ -116,7 +116,7 @@ const Home = () => {
             <p className='text-heading-medium leading-tight mb-12 '>
                 Looks like you have not added any Books click below to add one
             </p>
-            <Link to='/books/new' className='text-2xl custom-button' title='Click to Add'>add your first contact</Link>
+            <Link to='/books/new' className='text-2xl custom-button' title='Click to Add'>add your first Book</Link>
         </div>}
         {books && books.length>=1 &&
         <div>
@@ -162,7 +162,7 @@ const Home = () => {
         </div>
         </div>}
 
-        {showMessageModal && <MessageModal message={"Your contact has been saved successfully!"}/>}
+        {showMessageModal && <MessageModal message={"Your Book has been saved successfully!"}/>}
 
         {showPromptModal &&  <MessagePromptModal  deleteBook={deleteBook} 
            deletedBook={deletedBook} togglePromptModal={togglePrompt} fullName={"Name"}/>}

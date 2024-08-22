@@ -1,26 +1,18 @@
 import axios from 'axios';
 import React from 'react'
-import {useEffect} from 'react';
 import {useState} from 'react';
 import MessageModal from '../../components/messageModal';
 import {useGlobalContext} from '../../context/context';
 
-const AddContact = () => {
+const AddBook = () => {
     axios.defaults.withCredentials = true;
-    // context api values
+
     const {showMessageModal, setShowMessageModal} = useGlobalContext()
 
     // state
-    const [bookUser, setbookUser] = useState
-    ({bookTitle: '', bookAuthor: '', genre: '', publishedDate: ''})
+    const [bookUser, setbookUser] = useState({bookTitle: '', bookAuthor: '', genre: '', publishedDate: ''})
 
-    const [addedContact, setAddedContact] = useState('')
-    const [contactAmount, setIsContactAmount] = useState(true)
-
-    useEffect(() => {
-        const amount = localStorage.getItem('contactAmount')
-        setIsContactAmount(amount)
-    }, [])
+    const [addedBook, setAddedBook] = useState('')
 
     const handleInput = (target) => {
         const name = target.name;
@@ -49,19 +41,18 @@ const AddContact = () => {
             "Content-Type": 'application/json'
         }
 
-        // 
         try {
             const newUser = await axios.post('http://localhost:3001/books/add', {
 
-              title: bookUser.bookTitle,
-              author: bookUser.bookAuthor,
-              genre: bookUser.genre,
-              publishedDate: bookUser.publishedDate
-  
+                title: bookUser.bookTitle,
+                author: bookUser.bookAuthor,
+                genre: bookUser.genre,
+                publishedDate: bookUser.publishedDate
+
 
             }, {headers})
             console.log(newUser.data)
-            setAddedContact(newUser.data)
+            setAddedBook(newUser.data)
 
         } catch (e) {
             console.log(e);
@@ -72,7 +63,7 @@ const AddContact = () => {
 
     return (
         <>
-            <div className='add-contact px-30'>
+            <div className='add-book px-30'>
 
                 <h2 className='text-white font-bold text-heading-medium  lg:text-heading-large mb-6 lg:mb-14'>New Book</h2>
 
@@ -119,27 +110,15 @@ const AddContact = () => {
                         </div>
 
                         <div className='flex flex-col lg:flex-row items-start text-white mb-12 w-full lg:gap-11 lg:items-center'>
-                         
-
-                            {/* <div className='flex items-center'>
-                                <input id='m' type="radio" name="bookGenre" className='appearance-none border-2 rounded-full  bg-greenColor checked:bg-white' value="male"
-                                    checked={
-                                        bookUser.bookGenre === 'male'
-                                    }
-                                    onChange={
-                                        (e) => handleInput(e.target)
-                                    }/>
-                                <label className='text-xl font-normal' htmlFor='m'>
-                                    male
-                                </label>
 
 
-                            </div> */}
+                            <select onChange={
+                                    (e) => handleInput(e.target)
+                                }
+                                className='border-2 rounded-full bg-white'
+                                name="genre"
+                                id="genres">
 
-                            <select  onChange={
-                                        (e) => handleInput(e.target)
-                                    } className='border-2 rounded-full bg-white' name="genre" id="genres">
-                                
                                 <option value="fiction">Fiction</option>
                                 <option value="mystery">Mystery</option>
                                 <option value="fantasy">Fantasy</option>
@@ -153,7 +132,8 @@ const AddContact = () => {
 
                     <div className='text-white text-text-buttons  mb-5'>
                         <button type='submit' title='Click to add' className='text-lg lg:text-xl custom-button'>
-                            Add Book </button>
+                            Add Book
+                        </button>
 
                     </div>
                 </form>
@@ -162,11 +142,11 @@ const AddContact = () => {
             (showMessageModal) && <MessageModal message={"Please fill feilds"}/>
         }
             {
-            (addedContact) && <MessageModal canRedirect={true}
+            (addedBook) && <MessageModal canRedirect={true}
                 message={"New Book saved"}/>
         } </>
 
     )
 }
 
-export default AddContact
+export default AddBook

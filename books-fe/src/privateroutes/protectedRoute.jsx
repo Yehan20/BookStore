@@ -1,16 +1,17 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 import { useGlobalContext } from '../context/context'
 
 const ProtectedRoute = ({children}) => {
-    const {userdata} = useGlobalContext()
-    console.log(userdata)
+
+
+    const loggedUser = JSON.parse(localStorage.getItem('user'))
+
+    if(loggedUser){
+        return children;
+    }
   
-    if(userdata){
-      return <Navigate to={'/books'} replace={true}/>
-    } 
-    return userdata?'': children
-  
+    return loggedUser ? children: <Navigate to="/" replace={true} />;
 }
 
 export default ProtectedRoute

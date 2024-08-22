@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 
 
+
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
@@ -18,6 +19,7 @@ const AppProvider = ({children}) => {
   const [success,setSuccess]= useState('');
   const [loading,setLoading] = useState(false)
   const [apploading,setAppLoading] = useState(false)
+
 
   let baseURL = "http://localhost:3001";
 
@@ -62,20 +64,7 @@ const AppProvider = ({children}) => {
      }else{
           setUserData('')
      }
-    //  try{
-    //   const user = await axios.get('https://twc-contact-portal-api.onrender.com/login')
-    //   console.log(user.data)
-    //   setUserData(user.data.user)
-    //   setLoggedUser(user.data.isLogged)
-    //   setAppLoading(false)
-  
-    //  }catch(e){
-    //   if(e.response.data){
-    //      setLoggedUser(e.response.data.isLogged)
-    //      setAppLoading(false)
-      
-    //   }
-    //  }
+
   }
 
   const loginUser = async(email,password)=>{
@@ -98,6 +87,7 @@ const AppProvider = ({children}) => {
        setErrorMessage(e.response.data.message);
        setShowMessageModal(true);
        setLoading(false)
+      //  navigate('/books',{replace:true})
      }
   }
 
@@ -114,8 +104,7 @@ const AppProvider = ({children}) => {
          
          setLoggedUser(true)
          setUserData({email:user.data.email,_id:user.data._id});
-        //  setSuccess(true)
-        //  setShowMessageModal(true)
+
          setLoading(false)
 
       }catch(e){
@@ -131,15 +120,16 @@ const AppProvider = ({children}) => {
   const logout = async(_id)=>{
    console.log('logouts')
      try{
-       await axios.delete(`${baseURL}/logout/`+ _id.toString())
+       await axios.delete(`${baseURL}/logout/`+_id.toString())
 
        localStorage.removeItem('accessToken'),
        localStorage.removeItem('refreshToken')
-       localStorage.removeItem('contactAmount')
        localStorage.removeItem('user')
 
        setUserData('')
        setLoggedUser(false)
+
+       
      }catch(e){
         console.log(e)
      }
@@ -153,6 +143,9 @@ const AppProvider = ({children}) => {
      clearInterval(refreshInterval);
    };
  }, [userdata]);
+
+
+
 
 
   return (

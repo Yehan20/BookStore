@@ -30,11 +30,13 @@ const Login = () => {
       loginUser(email,password)
 
    }
-   
-   if(userdata){
-     console.log('correct');
-     navigate('/contacts',)
-   }
+   useEffect(()=>{
+    if(userdata){
+        console.log('correct');
+        navigate('/books',)
+      }
+   },[userdata])
+ 
 
     return (
         <>

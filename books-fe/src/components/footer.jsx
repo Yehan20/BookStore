@@ -1,14 +1,15 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 import LogoutIcon from '../assets/images/logout.svg'
 import { useGlobalContext } from '../context/context'
 const Footer = () => {
   const {userdata,logout} = useGlobalContext();
-  const navigate = useNavigate()
 
+  console.log("lgo",userdata)
+  
   if(!userdata){
-    return navigate('/')
+    const loggedUser = JSON.parse(localStorage.getItem('user'))
+    if(!loggedUser)  return <Navigate to={'/'}/>
   }
   return (
     <div className='flex justify-end mt-6'>

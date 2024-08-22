@@ -35,14 +35,14 @@ main {
 }
 .side-bar{
     background-image: url('../assets/images/pattern.png');
-    background-color: antiquewhite;
+    background-color: wheat;
+    background-blend-mode: multiply;
 }
 .login,.register{
-    /* background-image: url('../assets/images/side-circle.png');  */
     background-size:cover;
     /* background-color: red; */
     background-repeat: no-repeat;
-    background-color: #152c18 ;
+    background-color: #2b0101 ;
     background-blend-mode: multiply;
 
     width: 100%;
@@ -53,7 +53,7 @@ main {
 .login p{
     line-height: 1;
 }
-.login input ,.register input,.add-contact input,.add-contact input,select{
+.login input ,.register input,.add-book input,.add-book input,select{
     border-radius: 2em;
     display: block;
     padding: 0.5em 2em;
@@ -70,17 +70,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
 
-.add-contact input[type=radio]{
 
- 
-  transform: scale(0.3);
-  padding: 20px;
-}
 .custom-button{
    color: #fff;
    display: inline-block;
@@ -117,7 +108,7 @@ input[type=number] {
    
     background-size:cover;
     background-repeat: no-repeat;
-    background-color: #152c18 ;
+    background-color: #2b0101 ;
     background-blend-mode: multiply;
     width: 100%;
 }
@@ -125,7 +116,7 @@ input[type=number] {
   
     background-size:cover;
     background-repeat: no-repeat;
-    background-color: #152c18 ;
+    background-color: #2b0101 ;
     background-blend-mode: multiply;
     width: 100%;
 }
