@@ -86,11 +86,10 @@ const Home = () => {
            //http://localhost:3001/books/show 
            
             try{
-            const contactList = await axios.post(`${baseURL}/books/show`,{},{headers},signal)
+            const bookList = await axios.post(`${baseURL}/books/show`,{},{headers},signal)
 
-                // console.log(contactList.data.books)
-                setBooks(contactList.data.books)
-                localStorage.setItem("contactAmount",contactList.data.books.length);
+                console.log(bookList.data.books)
+                setBooks(bookList.data.books)
                 setLoading(false)
             }catch(e){
                 console.log(e.response.data.message);
