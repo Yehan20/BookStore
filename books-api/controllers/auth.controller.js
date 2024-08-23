@@ -83,7 +83,7 @@ const register  = async(req,res)=>{
         await bookSchema.create({
             userId:user._id,
             userEmail:user.email,
-            contacts:[]
+            books:[]
         })
 
         // Remove the password
