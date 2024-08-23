@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 //Importing shcemas
 const userSchema = require('../model/users');
+const bookSchema = require('../model/books');
 
 // JWT Token Generations
 const generateAccessToken = (user)=>{
@@ -79,7 +80,7 @@ const register  = async(req,res)=>{
         })
 
         //Create Contact Document 
-        await contactSchema.create({
+        await bookSchema.create({
             userId:user._id,
             userEmail:user.email,
             contacts:[]
